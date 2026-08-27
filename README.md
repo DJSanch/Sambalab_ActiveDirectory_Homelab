@@ -25,10 +25,9 @@ The purpose of this project is to develop practical experience in identity manag
 
 | Component        | Specification                   |
 | ---------------- | ------------------------------- |
-| Device           | Microsoft Surface Pro 11        |
-| Operating System | Windows 11 Pro                  |
+| Device           | MacBook Air        |
+| Operating System | MacOS                 |
 | Architecture     | ARM64                           |
-| Processor        | Qualcomm Snapdragon X — 12 Core |
 | Virtualization   | UTM                             |
 
 ### Virtual Machine
@@ -105,25 +104,74 @@ sambalab.local
 ## Lab Architecture
 
 ```text
-                 SAMBALAB.LOCAL
-                        │
-                 ┌──────┴──────┐
-                 │     DC01     │
-                 │  Ubuntu VM   │
-                 │              │
-                 │ Samba AD DC  │
-                 │     + DNS    │
-                 └──────┬───────┘
-                        │
-        ┌───────────────┼───────────────┐
-        │               │               │
-       IT              HR            Finance
-    20 Users        20 Users         20 Users
-        │               │               │
-        └───────────────┼───────────────┘
-                        │
-                      Sales
-                    20 Users
+                              SAMBALAB HOMELAB
+                                      │
+                         ┌────────────┴────────────┐
+                         │     MacBook Air M1      │
+                         │       macOS / ARM64     │
+                         │                         │
+                         │          UTM            │
+                         └────────────┬────────────┘
+                                      │
+                           Virtual Network
+                                      │
+                    ┌─────────────────┴─────────────────┐
+                    │                                   │
+              ┌─────▼─────┐                       ┌─────▼─────┐
+              │   DC01    │                       │  FILE01   │
+              │ Ubuntu    │                       │  Ubuntu   │
+              │ ARM64     │                       │  ARM64    │
+              │           │                       │           │
+              │ Samba AD  │                       │ SMB/File  │
+              │ DNS       │                       │ Server    │
+              │ Kerberos  │                       │           │
+              └─────┬─────┘                       └─────┬─────┘
+                    │                                   │
+                    └─────────────────┬─────────────────┘
+                                      │
+                              sambalab.local
+                                      │
+              ┌───────────────────────┼───────────────────────┐
+              │                       │                       │
+        ┌─────▼─────┐           ┌─────▼─────┐          ┌─────▼─────┐
+        │    IT     │           │    HR     │          │  Finance  │
+        │ 20 Users  │           │ 20 Users  │          │ 20 Users  │
+        └───────────┘           └───────────┘          └───────────┘
+                                      │
+                                ┌─────▼─────┐
+                                │   Sales   │
+                                │ 20 Users  │
+                                └───────────┘
+                                      │
+                              80 Users Total
+                                      │
+                    ┌─────────────────┴─────────────────┐
+                    │                                   │
+              Security Groups                    Organizational Units
+                    │                                   │
+             ┌──────┴──────┐                     ┌──────┴──────┐
+             │             │                     │             │
+        Department      Admin Groups          Users       Computers
+         Groups
+             │
+      ┌──────┼──────┐
+      │      │      │
+     IT     HR   Finance
+                    │
+                  Sales
+
+                                      │
+                                      ▼
+                         Windows Domain Clients
+                                      │
+                  ┌───────────────────┼───────────────────┐
+                  │                   │                   │
+             Windows 11          Windows 11          Windows 11
+                IT                  HR                 Finance
+                  │
+                  └───────────────────┬───────────────────┘
+                                      │
+                                Domain Joined
 ```
 
 Windows clients will be added later to test **domain joining, authentication, Group Policy, permissions, and other Windows administration tasks**.
