@@ -215,7 +215,7 @@ The primary objectives of SambaLAB are to gain practical experience with:
 ---
 
 
-## 🔐 Security Practices
+## Security Practices
 
 This project is designed to follow basic system administration and security principles.
 
@@ -229,7 +229,7 @@ This project is designed to follow basic system administration and security prin
 
 ---
 
-## ⚠️ Disclaimer
+## Disclaimer
 
 SambaLAB is a personal homelab created for educational and professional development purposes.
 
