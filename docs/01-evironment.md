@@ -38,7 +38,8 @@
 | Network           | `192.168.0.0/24`      |
 | Default Gateway   | `192.168.0.1`         |
 | Address Assignment| DHCP                  |
-| Current DNS       | `68.105.28.11`        |
+| MAC Address       | `5a:27:72:79:08:25`   |
+| DNS               | DHCP-provided         |
 
 ## Purpose
 
