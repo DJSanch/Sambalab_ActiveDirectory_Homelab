@@ -56,7 +56,7 @@ Server site      : Default-First-Site-Name
 Client site      : Default-First-Site-Name
 ```
 
-![Samba AD Domain Verification](screenshots/samba-ad-domain-verification.png)
+![Samba AD Domain Verification](screenshots/05-samba_provisioning_.png)
 
 *Figure 1 — Successful verification of the Samba Active Directory domain and Domain Controller.*
 
