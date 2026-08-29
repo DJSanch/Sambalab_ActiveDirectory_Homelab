@@ -55,6 +55,14 @@ DC netbios name  : DC01
 Server site      : Default-First-Site-Name
 Client site      : Default-First-Site-Name
 ```
+<<<<<<< HEAD
+=======
+
+![Samba AD Domain Verification]([Sambalab_ActiveDirectory/screenshots/05-samba_provisioning_.png](https://github.com/DJSanch/Sambalab_ActiveDirectory_Homelab/blob/main/screenshots/05-samba_provisioning.png))
+
+*Figure 1 — Successful verification of the Samba Active Directory domain and Domain Controller.*
+
+>>>>>>> f9603cb99a90d42623d2069ab199d3b827dab2b8
 ## Domain and Forest Functional Level
 
 The current domain and forest functional levels were verified with:
